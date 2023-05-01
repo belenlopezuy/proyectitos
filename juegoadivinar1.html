@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Juego de adivinanza</title>
+    <script src="juego.js"></script>
+</head>
+<body>
+    <h1>Juego de adivinanzas</h1>
+    <p>Intenta adivinar el número secreto entre 1 y 10. Solo tienes 3 intentos</p>
+    <form> 
+        <label for="numeroUsuario">Ingresa tu número de adivinanza:</label>
+        <input type="number" id="numeroUsuario" name="numeroUsuario">
+        <button type="button" onclick="adivina()">Enviar</button>
+    </form>
+    <script> 
+        let numeroSecreto = Math.floor(Math.random() * 10);
+        let intentos = 3;
+        function adivina() {
+            let numeroUsuario = parseInt(document.getElementById("numeroUsuario").value);
+            if (numeroUsuario === numeroSecreto) {
+                alert("¡Felicitaciones, adivinaste el número!");
+                location.reload();
+            } else { 
+                intentos--;
+                if (intentos === 0) {
+                    alert("Lo siento, has agotado tus intentos. El número secreto era " + numeroSecreto);
+                    location.reload();
+                } else if (numeroUsuario < numeroSecreto) {
+                    alert("El número elegido es menor al número secreto. Te quedan " + intentos + " intentos.");
+                } else {
+                    alert("El número es más alto que el número secreto. Te quedan " + intentos + " intentos.");
+                }
+                alert("Te quedan " + intentos + " intentos");
+            }
+        }
+    </script>
+</body>
+</html>
