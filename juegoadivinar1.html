@@ -21,6 +21,11 @@
             if (numeroUsuario === numeroSecreto) {
                 alert("¡Felicitaciones, adivinaste el número!");
                 location.reload();
+            } else {
+                if (numeroUsuario===0){
+                    alert("No pudes elegir ese numero");
+                    location.reload();
+                }
             } else { 
                 intentos--;
                 if (intentos === 0) {
